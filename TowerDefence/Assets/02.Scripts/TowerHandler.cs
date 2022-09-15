@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TowerHandler : MonoBehaviour
+public class TowerHandler : MonoBehaviour, IPointerClickHandler
 {
     public static TowerHandler instance;
     public bool isSelected => _ghostTower;
@@ -35,6 +36,9 @@ public class TowerHandler : MonoBehaviour
 
     public void Clear()
     {
+        if (_ghostTower != null)
+            Destroy(_ghostTower);
+
         _ghostTower = null;
         _selectedTowerInfo = null;
         gameObject.SetActive(false);
@@ -63,12 +67,48 @@ public class TowerHandler : MonoBehaviour
         _ray = _camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(_ray, out _hit, Mathf.Infinity, _nodeLayer))
         {
-            SetGhostTowerPosition(_hit.collider.transform.position);
+            SetGhostTowerPosition(_hit.collider.transform.position + Vector3.up * 0.5f);
             _ghostTower.SetActive(true);
         }
         else
         {
             _ghostTower.SetActive(false);
         }
+
+        if (Input.GetKey(KeyCode.Escape))
+            Clear();
+
+        transform.position = Input.mousePosition;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (_hit.collider == null)
+            return;
+
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            BuildTower();
+        }
+        else if(eventData.button == PointerEventData.InputButton.Right)
+        {
+            Clear();
+        }
+    }
+
+    private void BuildTower()
+    {
+        if (_selectedTowerInfo.buildPrice > Player.instance.money)
+        {
+            Debug.Log($"잔액이 부족합니다");
+            return;
+        }
+
+        if (_hit.collider.GetComponent<Node>().TryBuildTowerhere(_selectedTowerInfo.name))
+        {
+            Debug.Log($"타워 건설 완료 {_selectedTowerInfo.name}");
+            Player.instance.money -= _selectedTowerInfo.buildPrice; // 돈 차감
+        }
+        
     }
 }
