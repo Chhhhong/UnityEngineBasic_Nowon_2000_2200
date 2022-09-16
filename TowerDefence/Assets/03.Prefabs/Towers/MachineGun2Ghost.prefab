@@ -41,9 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3138261390018120446}
   - component: {fileID: 8574658224743685536}
-  - component: {fileID: 6283743996444682638}
-  m_Layer: 12
-  m_Name: MachineGun2
+  m_Layer: 0
+  m_Name: MachineGun2Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,20 +81,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info: {fileID: 11400000, guid: c39f10c2b4e526047831da1330f87d12, type: 2}
-  node: {fileID: 0}
---- !u!135 &6283743996444682638
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3978533688827987688}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.8
-  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1 &7482139062507494593
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: eef9d1528875a43edb151eb2f6326ff4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e2d4af59daea844489bf7803b7307a49, type: 2}
+      objectReference: {fileID: 2100000, guid: 4e194be83bf672f45bae58bba13f6ac8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eef9d1528875a43edb151eb2f6326ff4, type: 3}
 --- !u!4 &7099303739886590354 stripped
@@ -282,7 +267,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: b29d7ff11c99340e38246a09f771946f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e2d4af59daea844489bf7803b7307a49, type: 2}
+      objectReference: {fileID: 2100000, guid: 4e194be83bf672f45bae58bba13f6ac8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b29d7ff11c99340e38246a09f771946f, type: 3}
 --- !u!4 &8667282471120833883 stripped
