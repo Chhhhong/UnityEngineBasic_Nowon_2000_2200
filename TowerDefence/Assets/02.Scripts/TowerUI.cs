@@ -25,21 +25,22 @@ public class TowerUI : MonoBehaviour
             _upgradeButton.gameObject.SetActive(true);
             _upgradeCost = nextLevelTower.info.buildPrice;
             _upgradeCostText.text = nextLevelTower.info.buildPrice.ToString();
-            RefreshUpgradeCostTextColor();
 
+            if (_upgradeAffordable)
+                _upgradeCostText.color = Color.black;
+            else
+                _upgradeCostText.color = Color.red;
 
             _upgradeButton.onClick.RemoveAllListeners();
             _upgradeButton.onClick.AddListener(() => {
                 
                 if (_upgradeAffordable)
                 {
-                    Upgrade(tower, nextLevelTower);
-                    SetUp(nextLevelTower);
+                    Player.instance.money -= _upgradeCost;
+                    SetUp(Upgrade(tower, nextLevelTower));
                 }               
             });
-                
-            
-           
+                                   
         }
         else
         {
@@ -47,6 +48,7 @@ public class TowerUI : MonoBehaviour
         }
 
         // Sell 버튼 세팅
+        _sellButton.onClick.RemoveAllListeners();
         _sellButton.onClick.AddListener(() =>
         {
             Player.instance.money += tower.info.sellPrice;
@@ -63,14 +65,18 @@ public class TowerUI : MonoBehaviour
         _upgradeCost = -1;
     }
 
-    public void Upgrade(Tower before, Tower after)
+    public Tower Upgrade(Tower before, Tower after)
     {
-        if (before == null)
-            return;
+        Tower towerBuilt = null;
 
-        Node node = before.node;
-        node.Clear();
-        node.TryBuildTowerhere($"{after.info.type}{after.info.upgradeLevel}");
+        if (before != null)
+        {
+
+            Node node = before.node;
+            node.Clear();
+            node.TryBuildTowerhere($"{after.info.type}{after.info.upgradeLevel}", out towerBuilt);
+        }
+        return towerBuilt;        
     }
 
     private void Awake()
@@ -89,11 +95,11 @@ public class TowerUI : MonoBehaviour
         Clear();
     }
 
-    private void RefreshUpgradeCostTextColor()
+    private void RefreshUpgradeCostTextColor(int money)
     {
         if (_upgradeAffordable)
-            _upgradeCostText.color = Color.red;
-        else
             _upgradeCostText.color = Color.black;
+        else
+            _upgradeCostText.color = Color.red;
     }
 }

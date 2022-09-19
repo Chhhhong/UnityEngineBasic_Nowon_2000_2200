@@ -7,7 +7,19 @@ public class Player : MonoBehaviour
 {
     public static Player instance;
 
-    public int life;
+    private int _life;
+    public int life
+    {
+        get
+        {
+            return _life;
+        }
+        set
+        {
+            _life = value;
+            OnLifeChanged(_life);
+        }
+    }
     private int _money;
     public int money
     {
@@ -16,13 +28,13 @@ public class Player : MonoBehaviour
             return _money;
         }
         set
-        {
-            OnMoneyChanged();
+        {            
             _money = value;
+            OnMoneyChanged(_money);
         }        
     }
-    public event Action OnMoneyChanged;
-
+    public event Action<int> OnMoneyChanged;
+    public event Action<int> OnLifeChanged;
 
     public void SetUp(int life, int money)
     {

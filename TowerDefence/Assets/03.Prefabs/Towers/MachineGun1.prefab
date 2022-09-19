@@ -50,6 +50,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info: {fileID: 11400000, guid: 630e31f3df341554d9b9a3eeb0575d98, type: 2}
   node: {fileID: 0}
+  rotatePoint: {fileID: 7651459048460516490}
+  detectRange: 2.5
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!135 &7831524478984789785
 SphereCollider:
   m_ObjectHideFlags: 0
