@@ -5,12 +5,12 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     public TowerInfo info;
-    public Node node;
+    [HideInInspector] public Node node;
 
     protected Transform tr;
     [SerializeField] private Transform rotatePoint;
     [SerializeField] protected float detectRange;
-    [SerializeField] private LayerMask _targetLayer;
+    [SerializeField] protected LayerMask _targetLayer;
     protected Transform target;
 
 
@@ -19,7 +19,7 @@ public class Tower : MonoBehaviour
         tr = GetComponent<Transform>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         Collider[] cols = Physics.OverlapSphere(tr.position, detectRange, _targetLayer);
 
