@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   lifeInit: 10
-  moneyInit: 500
+  moneyInit: 800

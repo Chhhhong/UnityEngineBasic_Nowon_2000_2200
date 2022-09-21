@@ -4348,7 +4348,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (71)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4652,6 +4652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 206191467}
+  - component: {fileID: 206191468}
   m_Layer: 0
   m_Name: EnemyPaths
   m_TagString: Untagged
@@ -4761,6 +4762,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &206191468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206191466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa2d13380b16304cbf6161bb10c5dec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {fileID: 1855667878}
+  - {fileID: 221226601}
+  - {fileID: 499440195}
+  - {fileID: 661036135}
+  - {fileID: 1967056874}
+  - {fileID: 1843933053}
+  - {fileID: 491699505}
+  - {fileID: 1129785516}
+  - {fileID: 1802499381}
+  - {fileID: 1906249660}
+  - {fileID: 941418724}
+  - {fileID: 2027025241}
+  - {fileID: 1117462067}
+  - {fileID: 1724172585}
+  - {fileID: 1901688109}
+  - {fileID: 1524833381}
+  - {fileID: 584626419}
+  - {fileID: 1374104625}
+  - {fileID: 1565032800}
+  - {fileID: 881412237}
+  - {fileID: 1086954820}
+  - {fileID: 1012645637}
+  - {fileID: 438399905}
+  - {fileID: 1420478270}
+  - {fileID: 303750241}
+  - {fileID: 692971378}
+  - {fileID: 183795433}
+  - {fileID: 1148815661}
+  - {fileID: 2045194868}
+  - {fileID: 1297806778}
 --- !u!1 &219323722
 GameObject:
   m_ObjectHideFlags: 0
@@ -4888,7 +4932,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6734,7 +6778,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (67)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -8982,7 +9026,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (64)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -9864,7 +9908,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (25)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -10073,7 +10117,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (11)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -10505,6 +10549,7 @@ GameObject:
   - component: {fileID: 517883662}
   - component: {fileID: 517883667}
   - component: {fileID: 517883666}
+  - component: {fileID: 517883668}
   m_Layer: 15
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -10583,8 +10628,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 517883661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.93, y: 0.53, z: -0.96}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -15.25061, y: 0.25001, z: 6.0002403}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 187743182}
@@ -10621,6 +10666,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpMax: 100
   _hpBar: {fileID: 1096337358}
+--- !u!114 &517883668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517883661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29bfc58d4f1829b42a83b427b019648e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1 &518577980
 GameObject:
   m_ObjectHideFlags: 0
@@ -11823,7 +11881,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (47)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -13652,7 +13710,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (15)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -14467,7 +14525,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (70)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -18625,7 +18683,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (53)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -19647,7 +19705,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (37)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -19757,7 +19815,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943633951}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14, y: 0, z: -5}
+  m_LocalPosition: {x: -14.000561, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21593,7 +21651,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (58)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -23154,7 +23212,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (55)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -24484,7 +24542,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (39)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -25126,7 +25184,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (33)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -25857,7 +25915,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (72)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -27948,7 +28006,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (84)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -29575,7 +29633,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (51)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -30426,7 +30484,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (66)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -32532,7 +32590,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (43)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -33622,7 +33680,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (52)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -37549,7 +37607,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (41)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -39006,7 +39064,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (35)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -40417,7 +40475,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (24)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -41291,7 +41349,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -41948,7 +42006,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (42)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -42269,7 +42327,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (36)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -43150,7 +43208,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (23)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -44576,7 +44634,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (38)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -44909,7 +44967,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemyPath (79)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
