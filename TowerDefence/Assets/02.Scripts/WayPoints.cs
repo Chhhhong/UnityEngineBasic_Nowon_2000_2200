@@ -7,17 +7,6 @@ public class WayPoints : MonoBehaviour
     public static WayPoints instance;
     public Transform[] points;
 
-    public bool TryGetNextPoint(int currentPointIndex, out Transform nextPoint)
-    {
-        nextPoint = null;
-
-        if (currentPointIndex < points.Length - 1)
-        {
-            nextPoint = points[currentPointIndex + 1];
-        }
-
-        return nextPoint;
-    }
 
     private void Awake()
     {

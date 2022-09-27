@@ -14,3 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeInit: 10
   moneyInit: 800
+  stagesInfo:
+  - enemyspawnDataList:
+    - prefab: {fileID: 0}
+      num: 0
+    - prefab: {fileID: 0}
+      num: 0
+  - enemyspawnDataList: []
+  - enemyspawnDataList: []
