@@ -20,6 +20,12 @@ public class EnemyMove : MonoBehaviour
     private Vector3 _dir;
     private float _posTolerance = 0.05f;
 
+    public void SetStartEnd(Transform start, Transform end)
+    {
+        _start = start;
+        _end = end;
+    }
+
     private void Awake()
     {
         _tr = GetComponent<Transform>();
@@ -29,7 +35,12 @@ public class EnemyMove : MonoBehaviour
 
     private void Start()
     {
-        _wayPoints = _pathFinder.FindOptimizedPath(_start, _end);
+        if (_pathFinder.TryFindOptimizedPath(_start, _end, out _wayPoints) == false)
+        {
+            throw new System.Exception("EnemyMove : 길찾기 실패 !");
+        }
+
+
         _nextWayPoint = _wayPoints[0];
     }
 

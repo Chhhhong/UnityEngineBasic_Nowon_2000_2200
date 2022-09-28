@@ -47,23 +47,40 @@ public class Pathfinder : MonoBehaviour
         public NodeType type;
     }
 
-    private Transform _leftBottom; // (0, 0);
-    private Transform _rightTop; // (max, max);
-    private float _width => _rightTop.position.x - _leftBottom.position.x; // 실제 맵 너비
-    private float _height => _rightTop.position.z - _leftBottom.position.z; // 실제 맵 높이
-    private float _nodeTerm = 1.0f; // 노드 실제 간격
-    private NodePair[,] _map;
-    private bool[,] _visited;
-    private int[,] _direction = new int[2, 4]
+    private static Transform _leftBottom; // (0, 0);
+    private static Transform _rightTop; // (max, max);
+    private static float _width => _rightTop.position.x - _leftBottom.position.x; // 실제 맵 너비
+    private static float _height => _rightTop.position.z - _leftBottom.position.z; // 실제 맵 높이
+    private static float _nodeTerm = 1.0f; // 노드 실제 간격
+    private static NodePair[,] _map;
+    private static bool[,] _visited;
+    private static int[,] _direction = new int[2, 4]
     {
         {-1, 0, 1, 0 },
         { 0,-1, 0, 1 }
     };
-    private List<List<Transform>> _pathList = new List<List<Transform>>();
-    private List<Transform> _tmpPathForDFS = new List<Transform>();
+    private static List<List<Transform>> _pathList = new List<List<Transform>>();
+    private static List<Transform> _tmpPathForDFS = new List<Transform>();
 
 
-    public void SetNodeMap(List<Transform> pathNodes, List<Transform> obastacleNodes)
+    public static void SetNodeMap()
+    {
+        Transform nodeParent = GameObject.Find("Nodes").transform;
+        Transform[] nodes = new Transform[nodeParent.childCount];
+        for (int i = 0; i < nodeParent.childCount; i++)
+            nodes[i] = nodeParent.GetChild(i);
+
+        Transform enemyPathParent = GameObject.Find("EnemyPaths").transform;
+        Transform[] enemyPaths = new Transform[enemyPathParent.childCount];
+        for (int i = 0; i < enemyPathParent.childCount; i++)
+
+            enemyPaths[i] = enemyPathParent.GetChild(i);
+
+        SetNodeMap(enemyPaths.ToList(), nodes.ToList());
+    }
+
+    public static void SetNodeMap(List<Transform> pathNodes, List<Transform> obastacleNodes)
+
     {
         // 모든 노드 정렬
         List<Transform> nodes = new List<Transform>();
@@ -104,7 +121,7 @@ public class Pathfinder : MonoBehaviour
        
     }
 
-    public List<Transform> FindOptimizedPath(Transform startNode, Transform endNode)
+    public bool TryFindOptimizedPath(Transform startNode, Transform endNode, out List<Transform> optimizedPath)
     {
         bool found = false;
 
@@ -143,12 +160,22 @@ public class Pathfinder : MonoBehaviour
                 Debug.Log($"[Pathfinder] : 최단경로 탐색 됨. {pathString}");
             }
             */
-            return _pathList.OrderBy(path => path.Count).First();
+            optimizedPath = new List<Transform>(_pathList.OrderBy(path => path.Count).First());
+            foreach (var path in _pathList)
+            {
+                path.Clear();
+            }
+            _pathList.Clear();
+
+            for (int i = 0; i < _visited.GetLength(0); i++)
+                for (int j = 0; j < _visited.GetLength(1); j++)
+                    _visited[i, j] = false;
+
         }
-        return null;
+        return found;
     }
 
-    private bool BFS(Coord start, Coord end)
+    private static bool BFS(Coord start, Coord end)
     {
         // 시작점과 끝점 지날 수 있는곳인지 체크
     
@@ -205,8 +232,9 @@ public class Pathfinder : MonoBehaviour
         return isFinished;
     }
 
-    private bool DFS(Coord start, Coord end)
+    private static bool DFS(Coord start, Coord end)
     {
+        _tmpPathForDFS = new List<Transform>();
         bool isFound = DFSLoop(start, end);
         if (isFound)
         {
@@ -217,7 +245,7 @@ public class Pathfinder : MonoBehaviour
 
     }
 
-    private bool DFSLoop(Coord start, Coord end)
+    private static bool DFSLoop(Coord start, Coord end)
     {
         bool isFound = false;
         _visited[start.y, start.x] = true;
@@ -267,7 +295,7 @@ public class Pathfinder : MonoBehaviour
 
     // 기록된 부모/자식 노드 페어의 리스트로
     // 경로를 계산해서 반환해주는 함수
-    private List<Transform> CalcPath(List<KeyValuePair<Coord, Coord>> parentPairs, Coord start, Coord end)
+    private static List<Transform> CalcPath(List<KeyValuePair<Coord, Coord>> parentPairs, Coord start, Coord end)
     {
         List<Transform> path = new List<Transform>();
 
@@ -288,7 +316,7 @@ public class Pathfinder : MonoBehaviour
         return path;
     }
 
-    private bool FindFixedWayPoints()
+    private static bool FindFixedWayPoints()
     {
         if (WayPoints.instance == null)
             return false;
@@ -296,13 +324,13 @@ public class Pathfinder : MonoBehaviour
         _pathList.Add(WayPoints.instance.points.ToList());
         return true;
     }
-    private Coord TransformToCoord(Transform node)
+    private static Coord TransformToCoord(Transform node)
     {
         return new Coord((int)((node.position.z - _leftBottom.position.z) / _nodeTerm),
                          (int)((node.position.x - _leftBottom.position.x) / _nodeTerm));
     }
 
-    private NodePair FindNode(Transform node)
+    private static NodePair FindNode(Transform node)
     {
         Coord coord = TransformToCoord(node);
         for (int i = 0; i < _map.GetLength(1); i++)
@@ -313,7 +341,7 @@ public class Pathfinder : MonoBehaviour
         return new NodePair() { coord = Coord.error, node = null, type = NodeType.None };
     }
 
-    private Transform GetNode(Coord coord)
+    private static Transform GetNode(Coord coord)
     {
         if (_map[coord.y, coord.x].node == null)
             Debug.LogError($"Failed to get node {coord.x}, {coord.y}");
@@ -321,19 +349,5 @@ public class Pathfinder : MonoBehaviour
         return _map[coord.y, coord.x].node;
     }
 
-    private void Start()
-    {
-        Transform nodeParent = GameObject.Find("Nodes").transform;
-        Transform[] nodes = new Transform[nodeParent.childCount];
-        for (int i = 0; i < nodeParent.childCount; i++)
-            nodes[i] = nodeParent.GetChild(i);
-
-        Transform enemyPathParent = GameObject.Find("EnemyPaths").transform;
-        Transform[] enemyPaths = new Transform[enemyPathParent.childCount];
-        for (int i = 0; i < enemyPathParent.childCount; i++)
-
-            enemyPaths[i] = enemyPathParent.GetChild(i);
-
-        SetNodeMap(enemyPaths.ToList(), nodes.ToList());
-    }
+    
 }

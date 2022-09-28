@@ -13,11 +13,21 @@ public class LevelInfo : ScriptableObject
 [System.Serializable]
 public class StageInfo
 {
-    public List<EnemySpawnData> enemyspawnDataList = new List<EnemySpawnData>();
+    public List<EnemySpawnData> enemySpawnDataList = new List<EnemySpawnData>();
 }
 
 [System.Serializable]
 public class EnemySpawnData
+{
+    public PoolElement poolElement;
+    public int spawnPointIndex;
+    public int goalPointIndex;
+    public float term;
+    public float delay;
+}
+
+[System.Serializable]
+public class PoolElement
 {
     public GameObject prefab;
     public int num;

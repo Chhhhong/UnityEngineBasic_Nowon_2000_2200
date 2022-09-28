@@ -6,9 +6,11 @@ public class GamePlay : MonoBehaviour
 {
     public static GamePlay instance;
 
+
     public enum States
     {
         Idle,
+        SetUpLevel,
         PlayStartEvents,
         WaitForStartEvents,
         PlayStage,
@@ -20,11 +22,13 @@ public class GamePlay : MonoBehaviour
     }
     public States state;
     public LevelInfo levelInfo;
+    public int currentStage;
+    [SerializeField] private EnemySpawner _spawner;
 
     public void StartLevel()
     {
         if (state == States.Idle)
-            state = States.PlayStartEvents;
+            state = States.SetUpLevel;
     }
 
     private void Awake()
@@ -48,15 +52,41 @@ public class GamePlay : MonoBehaviour
         {
             case States.Idle:
                 break;
+            case States.SetUpLevel:
+                {
+                    Pathfinder.SetNodeMap();
+                    state = States.PlayStartEvents;
+                }               
+                break;
             case States.PlayStartEvents:
+                {
+                    state = States.WaitForStartEvents;
+                }
                 break;
             case States.WaitForStartEvents:
+                {
+                    state = States.PlayStage;
+                }
                 break;
             case States.PlayStage:
+                {
+                    _spawner.StartSpawn(levelInfo.stagesInfo[currentStage]);
+                    state = States.WaitForStageFinished;
+                }
                 break;
             case States.WaitForStageFinished:
                 break;
             case States.NextStage:
+                {
+                    // 다음 스테이지 없으면 레벨 끝
+                    if (currentStage >= levelInfo.stagesInfo.Count - 1)
+                        state = States.LevelCompleted;
+                    else
+                    {
+                        currentStage++;
+                        state = States.PlayStage;
+                    }
+                }
                 break;
             case States.LevelCompleted:
                 break;
@@ -67,5 +97,11 @@ public class GamePlay : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void MoveNext()
+    {
+        if (state < States.WaitForUser)
+            state++;
     }
 }
