@@ -20536,7 +20536,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 12.41, z: -8.02}
+  m_LocalPosition: {x: 0, y: 15, z: -8.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37650,6 +37650,7 @@ MonoBehaviour:
   state: 0
   levelInfo: {fileID: 11400000, guid: 64febefcc34b29a4cb95c677451a909f, type: 2}
   currentStage: 0
+  currentStageId: 0
   _spawner: {fileID: 806658378}
 --- !u!4 &1775369320
 Transform:

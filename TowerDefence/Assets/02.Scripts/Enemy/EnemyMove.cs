@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     private Transform _tr;
-
+    private Enemy _enemy;
     public float speed = 1.0f;
 
     private Pathfinder _pathFinder;
@@ -30,6 +30,7 @@ public class EnemyMove : MonoBehaviour
     private void Awake()
     {
         _tr = GetComponent<Transform>();
+        _enemy = GetComponent<Enemy>();
         _pathFinder = GetComponent<Pathfinder>();
         _originY = _tr.position.y;
     }
@@ -70,7 +71,7 @@ public class EnemyMove : MonoBehaviour
     private void OnReachedToEnd()
     {
         Player.instance.life -= 1;
-        Destroy(gameObject);
+        _enemy.Die();
     }
 
     public bool TryGetNextPoint(int curretPointIndex, out Transform nextPoint)

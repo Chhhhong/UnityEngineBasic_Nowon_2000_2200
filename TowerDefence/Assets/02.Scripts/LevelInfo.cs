@@ -13,6 +13,7 @@ public class LevelInfo : ScriptableObject
 [System.Serializable]
 public class StageInfo
 {
+    public int id;
     public List<EnemySpawnData> enemySpawnDataList = new List<EnemySpawnData>();
 }
 
