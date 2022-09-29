@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5668060922501894164
+--- !u!1 &6894048787620189553
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1085280862137772605}
-  - component: {fileID: 2637652571728353469}
+  - component: {fileID: 2092780682118791893}
+  - component: {fileID: 417950305367354755}
   m_Layer: 0
   m_Name: TowerAssets
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1085280862137772605
+--- !u!4 &2092780682118791893
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5668060922501894164}
+  m_GameObject: {fileID: 6894048787620189553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,21 +32,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2637652571728353469
+--- !u!114 &417950305367354755
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5668060922501894164}
+  m_GameObject: {fileID: 6894048787620189553}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5007816e4a7704cb178ef2382d27c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 793654b4b5d40bc4a978af3b86264105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _towers:
-  - {fileID: 3703257836899553150, guid: 16528f4301d8c6b4c8a000f19dd559b3, type: 3}
-  - {fileID: 3978533688827987688, guid: f1bfc4b30b7c6ce43aed6ea784b0e6b3, type: 3}
-  - {fileID: 7531266721105609584, guid: 50220c98df9cf384ba8ff71752eba2d1, type: 3}
+  - {fileID: 264502780879732103, guid: 16528f4301d8c6b4c8a000f19dd559b3, type: 3}
+  - {fileID: 4378151398567070802, guid: b2c80341e1f4371469cf8f22ac8d5e75, type: 3}
+  - {fileID: 7539129097572483833, guid: 5bab2ab7058ca064898e7c5f5841a950, type: 3}
   _ghostTowers:
-  - {fileID: 264502780879732103, guid: 016e3ac873bd2ed48bdeea0257a2b324, type: 3}
+  - {fileID: 264502780879732103, guid: 26ce6c768bce6e24cb1729df451fa24e, type: 3}

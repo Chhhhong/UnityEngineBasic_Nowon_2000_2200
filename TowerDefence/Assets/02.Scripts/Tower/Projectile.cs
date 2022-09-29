@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private bool _isGuided;    
-    private Vector3 _dir;
+    private bool _isGuided; 
     private float _speed;
     protected int damage;
-    protected LayerMask targetLayer;
     protected LayerMask touchLayer;
+    protected LayerMask targetLayer;
     protected Transform target;
     protected Transform tr;
 
     public void SetUp(Transform target,
-                      float speed,
-                      int damage,
+                      float speed, 
+                      int damage, 
                       bool isGuided,
-                      LayerMask touchLayer,
+                      LayerMask touchLayer, 
                       LayerMask targetLayer)
     {
         this.target = target;
@@ -39,9 +38,8 @@ public class Projectile : MonoBehaviour
     {
         if (_isGuided)
             tr.LookAt(target);
-
-            tr.Translate(Vector3.forward * _speed * Time.fixedDeltaTime, Space.Self);
         
+        tr.Translate(Vector3.forward * _speed * Time.fixedDeltaTime, Space.Self);
     }
 
     protected virtual void OnTriggerEnter(Collider other)

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
 public class TowerHandler : MonoBehaviour, IPointerClickHandler
 {
     public static TowerHandler instance;
@@ -13,7 +12,6 @@ public class TowerHandler : MonoBehaviour, IPointerClickHandler
     private Ray _ray;
     private RaycastHit _hit;
     [SerializeField] private LayerMask _nodeLayer;
-
     public void SetTower(TowerInfo towerInfo)
     {
         _selectedTowerInfo = towerInfo;
@@ -27,12 +25,13 @@ public class TowerHandler : MonoBehaviour, IPointerClickHandler
         if (TowerAssets.instance.TryGetGhostTower(_selectedTowerInfo.name, out GameObject ghostTowerPrefab))
         {
             _ghostTower = Instantiate(ghostTowerPrefab);
-        }
+        }    
         else
         {
             throw new System.Exception("고스트 타워 참조 실패");
         }
     }
+
 
     public void Clear()
     {
@@ -90,7 +89,7 @@ public class TowerHandler : MonoBehaviour, IPointerClickHandler
         {
             BuildTower();
         }
-        else if(eventData.button == PointerEventData.InputButton.Right)
+        else if (eventData.button == PointerEventData.InputButton.Right)
         {
             Clear();
         }
@@ -104,11 +103,10 @@ public class TowerHandler : MonoBehaviour, IPointerClickHandler
             return;
         }
 
-        if (_hit.collider.GetComponent<Node>().TryBuildTowerhere(_selectedTowerInfo.name, out Tower towerBuilt))
+        if (_hit.collider.GetComponent<Node>().TryBuildTowerHere(_selectedTowerInfo.name, out Tower towerBuilt))
         {
             Debug.Log($"타워 건설 완료 {_selectedTowerInfo.name}, 노드위치 : {towerBuilt.node.name}");
             Player.instance.money -= _selectedTowerInfo.buildPrice; // 돈 차감
         }
-        
     }
 }

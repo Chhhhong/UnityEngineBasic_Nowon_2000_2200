@@ -14,7 +14,7 @@ public class TowerMachineGun : Tower
     protected override void Update()
     {
         base.Update();
-        Reload();  
+        Reload(); 
     }
 
     private void Reload()
@@ -28,7 +28,7 @@ public class TowerMachineGun : Tower
             }
         }
         else
-        { 
+        {
             _reloadTimer -= Time.deltaTime;
         }
     }

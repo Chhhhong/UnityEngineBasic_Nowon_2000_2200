@@ -15,5 +15,5 @@ MonoBehaviour:
   type: 0
   upgradeLevel: 2
   buildPrice: 150
-  sellPrice: 120
+  sellPrice: 200
   icon: {fileID: 0}

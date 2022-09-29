@@ -25,7 +25,6 @@ public class EnemySpawner : MonoBehaviour
 
         timersList.Add(tmpTimerList);
         delayTimersList.Add(tmpDelayTimersList);
-        
     }
 
     private void Update()
@@ -38,12 +37,13 @@ public class EnemySpawner : MonoBehaviour
                 {
                     if (timersList[i][j] < 0)
                     {
-                        GameObject go = Instantiate(stageList[i].enemySpawnDataList[j].poolElement.prefab,
-                                                    spawnPoints[i].position,
-                                                    Quaternion.identity);
+                        GameObject go = Instantiate(original: stageList[i].enemySpawnDataList[j].poolElement.prefab, 
+                                                    position: spawnPoints[i].position,
+                                                    rotation: Quaternion.identity);
 
-                        go.GetComponent<EnemyMove>().SetStartEnd(spawnPoints[stageList[i].enemySpawnDataList[j].spawnPointIndex],
-                                                                 goalPoints[stageList[i].enemySpawnDataList[j].goalPointIndex]);
+                        go.GetComponent<EnemyMove>().SetStartEnd(start: spawnPoints[stageList[i].enemySpawnDataList[j].spawnPointIndex],
+                                                                 end  : goalPoints[stageList[i].enemySpawnDataList[j].goalPointIndex]);
+
                         timersList[i][j] = stageList[i].enemySpawnDataList[j].term;
                     }
                     else

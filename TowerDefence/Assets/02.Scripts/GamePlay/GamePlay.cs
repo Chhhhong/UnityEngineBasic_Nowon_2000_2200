@@ -6,7 +6,6 @@ public class GamePlay : MonoBehaviour
 {
     public static GamePlay instance;
 
-
     public enum States
     {
         Idle,
@@ -56,7 +55,7 @@ public class GamePlay : MonoBehaviour
                 {
                     Pathfinder.SetNodeMap();
                     state = States.PlayStartEvents;
-                }               
+                }
                 break;
             case States.PlayStartEvents:
                 {
@@ -85,7 +84,7 @@ public class GamePlay : MonoBehaviour
                     {
                         currentStage++;
                         state = States.PlayStage;
-                    }
+                    }   
                 }
                 break;
             case States.LevelCompleted:

@@ -13,7 +13,7 @@ public class ProjectileBullet : Projectile
             {
                 enemy.hp -= damage;
                 GameObject effect = Instantiate(_explosionEffect.gameObject, tr.position, Quaternion.LookRotation(tr.position - target.position));
-
+                
                 Destroy(effect, _explosionEffect.main.duration + _explosionEffect.main.startLifetime.constantMax);
                 Destroy(gameObject);
             }

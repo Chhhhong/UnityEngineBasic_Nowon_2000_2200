@@ -26,6 +26,7 @@ public class EnemyMove : MonoBehaviour
         _end = end;
     }
 
+
     private void Awake()
     {
         _tr = GetComponent<Transform>();
@@ -40,13 +41,12 @@ public class EnemyMove : MonoBehaviour
             throw new System.Exception("EnemyMove : 길찾기 실패 !");
         }
 
-
         _nextWayPoint = _wayPoints[0];
     }
 
     private void FixedUpdate()
     {
-        _targetPos = new Vector3(_nextWayPoint.position.x, 
+        _targetPos = new Vector3(_nextWayPoint.position.x,
                                  _originY,
                                  _nextWayPoint.position.z);
         _dir = (_targetPos - _tr.position).normalized;
@@ -55,7 +55,7 @@ public class EnemyMove : MonoBehaviour
         {
             if (TryGetNextPoint(_wayPointIndex, out _nextWayPoint))
             {
-                _wayPointIndex++;                
+                _wayPointIndex++;
             }
             else
             {
@@ -73,13 +73,13 @@ public class EnemyMove : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public bool TryGetNextPoint(int currentPointIndex, out Transform nextPoint)
+    public bool TryGetNextPoint(int curretPointIndex, out Transform nextPoint)
     {
         nextPoint = null;
 
-        if (currentPointIndex < _wayPoints.Count - 1)
+        if (curretPointIndex < _wayPoints.Count - 1)
         {
-            nextPoint = _wayPoints[currentPointIndex + 1];
+            nextPoint = _wayPoints[curretPointIndex + 1];
         }
 
         return nextPoint;

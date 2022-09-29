@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-
 public class Enemy : MonoBehaviour
 {
     private int _hp;
@@ -28,4 +27,3 @@ public class Enemy : MonoBehaviour
         hp = hpMax;
     }
 }
-

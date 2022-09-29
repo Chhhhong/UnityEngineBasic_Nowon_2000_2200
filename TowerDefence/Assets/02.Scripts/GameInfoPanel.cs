@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Runtime.CompilerServices;
 
 public class GameInfoPanel : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class GameInfoPanel : MonoBehaviour
     {
         yield return new WaitUntil(() => Player.instance);
         Player.instance.OnMoneyChanged += SetMoneyText;
-        Player.instance.OnLifeChanged += SetLifeText;   
+        Player.instance.OnLifeChanged += SetLifeText;
     }
 
     private void SetMoneyText(int money)
@@ -42,5 +43,4 @@ public class GameInfoPanel : MonoBehaviour
     {
         _stage.text = stage.ToString();
     }
-        
 }

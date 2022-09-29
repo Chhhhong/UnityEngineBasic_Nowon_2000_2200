@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
 public class TowerUI : MonoBehaviour
 {
     public static TowerUI instance;
@@ -26,21 +25,20 @@ public class TowerUI : MonoBehaviour
             _upgradeCost = nextLevelTower.info.buildPrice;
             _upgradeCostText.text = nextLevelTower.info.buildPrice.ToString();
 
-            if (_upgradeAffordable)
+            if (_upgradeAffordable) 
                 _upgradeCostText.color = Color.black;
-            else
+            else 
                 _upgradeCostText.color = Color.red;
 
             _upgradeButton.onClick.RemoveAllListeners();
             _upgradeButton.onClick.AddListener(() => {
-                
+
                 if (_upgradeAffordable)
                 {
                     Player.instance.money -= _upgradeCost;
                     SetUp(Upgrade(tower, nextLevelTower));
-                }               
+                }
             });
-                                   
         }
         else
         {
@@ -71,13 +69,14 @@ public class TowerUI : MonoBehaviour
 
         if (before != null)
         {
-
             Node node = before.node;
             node.Clear();
-            node.TryBuildTowerhere($"{after.info.type}{after.info.upgradeLevel}", out towerBuilt);
+            node.TryBuildTowerHere($"{after.info.type}{after.info.upgradeLevel}", out towerBuilt);
         }
-        return towerBuilt;        
+
+        return towerBuilt;
     }
+
 
     private void Awake()
     {

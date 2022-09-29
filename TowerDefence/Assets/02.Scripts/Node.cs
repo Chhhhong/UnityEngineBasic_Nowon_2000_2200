@@ -18,7 +18,7 @@ public class Node : MonoBehaviour
         _towerBuilt = null;
     }
 
-    public bool TryBuildTowerhere(string towerName, out Tower towerBuilt)
+    public bool TryBuildTowerHere(string towerName, out Tower towerBuilt)
     {
         bool isOK = false;
         towerBuilt = null;
@@ -28,10 +28,10 @@ public class Node : MonoBehaviour
             Debug.Log("해당위치에 타워를 건설할 수 없습니다.");
             return false;
         }
-        
+
         if (TowerAssets.instance.TryGetTower(towerName, out GameObject tower))
         {
-            GameObject built = Instantiate(tower,
+            GameObject built = Instantiate(tower, 
                                            transform.position + Vector3.up * 0.5f,
                                            Quaternion.identity,
                                            transform);
@@ -42,6 +42,7 @@ public class Node : MonoBehaviour
         }
         return isOK;
     }
+
     private void Awake()
     {
         _renderer = GetComponent<Renderer>();

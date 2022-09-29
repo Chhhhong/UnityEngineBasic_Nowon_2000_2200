@@ -12,7 +12,8 @@ public class Tower : MonoBehaviour
     [SerializeField] protected float detectRange;
     [SerializeField] protected LayerMask _targetLayer;
     protected Transform target;
-
+    
+    
 
     private void Awake()
     {
@@ -31,12 +32,12 @@ public class Tower : MonoBehaviour
         else
         {
             target = null;
-        }
+        }   
     }
 
     private void OnMouseDown()
     {
-        if (TowerHandler.instance.gameObject.activeSelf == false)
+        if (TowerHandler.instance.gameObject.activeSelf == false)            
             TowerUI.instance.SetUp(this);
     }
 

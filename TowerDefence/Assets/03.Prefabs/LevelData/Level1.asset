@@ -9,22 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a77238964a865c4fbec3694ebb9dfb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7935efd600f043441844fcc016d553d5, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
   lifeInit: 10
-  moneyInit: 800
+  moneyInit: 2000
   stagesInfo:
   - enemySpawnDataList:
     - poolElement:
-        prefab: {fileID: 5974030430461082375, guid: 9fa85280e91bfde44bcf7fce52ec41e2, type: 3}
+        prefab: {fileID: 7685190164074913231, guid: 9a6e28178957f134f927cdcf20d62c3d, type: 3}
         num: 5
       spawnPointIndex: 0
       goalPointIndex: 0
       term: 1
       delay: 0
     - poolElement:
-        prefab: {fileID: 5017964147762869189, guid: 2210adae6c95ce94faa313537b6e50dd, type: 3}
+        prefab: {fileID: 3787745988532606039, guid: 198d15d90b8f2294c89179898759a174, type: 3}
         num: 3
       spawnPointIndex: 0
       goalPointIndex: 0
