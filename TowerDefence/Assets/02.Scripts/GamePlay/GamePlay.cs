@@ -24,6 +24,7 @@ public class GamePlay : MonoBehaviour
     public int currentStage;
     public int currentStageId;
     private Dictionary<int, bool> _stageFinishedPairs;
+    private float _nextStageDelay = 0.5f;
 
     [SerializeField] private EnemySpawner _spawner;
 
@@ -31,6 +32,13 @@ public class GamePlay : MonoBehaviour
     {
         if (state == States.Idle)
             state = States.SetUpLevel;
+    }
+
+    public void NextStage()
+    {
+        if (currentStage < levelInfo.stagesInfo.Count - 1 &&
+            state == States.WaitForStageFinished)
+            state = States.NextStage;
     }
 
     private void Awake()
@@ -131,7 +139,8 @@ public class GamePlay : MonoBehaviour
             // 현재 끝나기를 기다리던 스테이지가 끝난거면 다음 스테이지 진행
             else if (stageId == currentStageId)
             {
-                state = States.NextStage;
+                _spawner.DestroyAllSkipButtons();
+                Invoke("NextStage", _nextStageDelay);
             }
         }
     }
@@ -151,4 +160,6 @@ public class GamePlay : MonoBehaviour
     {
         state = States.LevelCompleted;
     }
+
+    
 }

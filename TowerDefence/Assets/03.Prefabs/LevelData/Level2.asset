@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7935efd600f043441844fcc016d553d5, type: 3}
+  m_Name: Level2
+  m_EditorClassIdentifier: 
+  lifeInit: 10
+  moneyInit: 1800
+  stagesInfo:
+  - id: 0
+    enemySpawnDataList:
+    - poolElement:
+        prefab: {fileID: 7685190164074913231, guid: 9a6e28178957f134f927cdcf20d62c3d, type: 3}
+        num: 3
+      spawnPointIndex: 0
+      goalPointIndex: 0
+      term: 1
+      delay: 0
+    - poolElement:
+        prefab: {fileID: 3787745988532606039, guid: 198d15d90b8f2294c89179898759a174, type: 3}
+        num: 1
+      spawnPointIndex: 1
+      goalPointIndex: 1
+      term: 2
+      delay: 3
+  - id: 1
+    enemySpawnDataList:
+    - poolElement:
+        prefab: {fileID: 7685190164074913231, guid: 9a6e28178957f134f927cdcf20d62c3d, type: 3}
+        num: 5
+      spawnPointIndex: 0
+      goalPointIndex: 0
+      term: 1
+      delay: 0
+    - poolElement:
+        prefab: {fileID: 3787745988532606039, guid: 198d15d90b8f2294c89179898759a174, type: 3}
+        num: 3
+      spawnPointIndex: 1
+      goalPointIndex: 1
+      term: 2
+      delay: 3
+  - id: 2
+    enemySpawnDataList:
+    - poolElement:
+        prefab: {fileID: 7685190164074913231, guid: 9a6e28178957f134f927cdcf20d62c3d, type: 3}
+        num: 7
+      spawnPointIndex: 0
+      goalPointIndex: 0
+      term: 1
+      delay: 0
+    - poolElement:
+        prefab: {fileID: 3787745988532606039, guid: 198d15d90b8f2294c89179898759a174, type: 3}
+        num: 4
+      spawnPointIndex: 1
+      goalPointIndex: 1
+      term: 2
+      delay: 3
