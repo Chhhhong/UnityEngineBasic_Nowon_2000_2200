@@ -16629,7 +16629,7 @@ MonoBehaviour:
   - {fileID: 1855667878}
   goalPoints:
   - {fileID: 1739818212}
-  _skipButtonUIPrefab: {fileID: -7521505599528342430, guid: 01b0d73d47e073c459653c31f3940873, type: 3}
+  _skipButtonUIPrefab: {fileID: 2590246006646580654, guid: e481b6f1b5ef1b84c908e6d0ad68472d, type: 3}
 --- !u!4 &806658379
 Transform:
   m_ObjectHideFlags: 0
@@ -20537,7 +20537,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 15, z: -8.02}
+  m_LocalPosition: {x: 0, y: 12.41, z: -8.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

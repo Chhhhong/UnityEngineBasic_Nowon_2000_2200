@@ -27,6 +27,7 @@ public class GamePlay : MonoBehaviour
     private float _nextStageDelay = 0.5f;
 
     [SerializeField] private EnemySpawner _spawner;
+    
 
     public void StartLevel()
     {
@@ -119,7 +120,7 @@ public class GamePlay : MonoBehaviour
     }
 
     /// <summary>
-    /// 스테이지 끝날때 호출되는 콜백
+    /// 스테이지 끝날떄 호출되는 콜백
     /// 호출될때마다 레벨도 끝났는지 같이 체크
     /// </summary>
     /// <param name="stageId">스테이지 고유 인식 번호</param>
@@ -131,7 +132,7 @@ public class GamePlay : MonoBehaviour
         {
             _stageFinishedPairs[stageId] = true;
 
-            // 레벨 끝났는지 체크
+            // 레벨 끝났는지체크
             if (IsLevelFinished())
             {
                 OnLevelFinished();
@@ -147,7 +148,7 @@ public class GamePlay : MonoBehaviour
 
     private bool IsLevelFinished()
     {
-        bool isFinished = true;
+        bool isFinished = true;    
         foreach (var pair in _stageFinishedPairs)
         {
             if (pair.Value == false)

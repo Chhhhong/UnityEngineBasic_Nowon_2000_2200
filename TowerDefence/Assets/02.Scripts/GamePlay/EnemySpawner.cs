@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class EnemySpawner : MonoBehaviour
 {
     private List<StageInfo> stageList = new List<StageInfo>();
@@ -34,7 +33,6 @@ public class EnemySpawner : MonoBehaviour
             return _spawnFinishedTrigger;
         }
     }
-
 
     public void StartSpawn(StageInfo stageInfo)
     {
@@ -67,7 +65,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        for (int i = stageList.Count - 1; i >=0; i--)
+        for (int i = stageList.Count - 1; i >= 0; i--)
         {
             bool tmpSpawnFinished = true;
             for (int j = 0; j < stageList[i].enemySpawnDataList.Count; j++)
@@ -79,33 +77,34 @@ public class EnemySpawner : MonoBehaviour
                     if (delayTimersList[i][j] < 0)
                     {
                         if (timersList[i][j] < 0)
-                        {                           
-                             GameObject go = Instantiate(original: stageList[i].enemySpawnDataList[j].poolElement.prefab,
-                                                         position: spawnPoints[stageList[i].enemySpawnDataList[j].spawnPointIndex].position,
-                                                         rotation: Quaternion.identity);
-                             enemiesSpawnedList[i].Add(go);
-                             int tmpId = stageList[i].id;
-                             go.GetComponent<Enemy>().OnDie += () =>
-                             {
-                                 int tmpIdx = stageList.FindIndex(stageInfo => stageInfo.id == tmpId);
+                        {
+                            GameObject go = Instantiate(original: stageList[i].enemySpawnDataList[j].poolElement.prefab,
+                                                        position: spawnPoints[stageList[i].enemySpawnDataList[j].spawnPointIndex].position,
+                                                        rotation: Quaternion.identity);
 
-                                 enemiesSpawnedList[tmpIdx].Remove(go);
-                                 if (enemiesSpawnedList[tmpIdx].Count == 0)
-                                 {
-                                     OnStageFinished(tmpId);
-                                     stageList.RemoveAt(tmpIdx);
-                                     timersList.RemoveAt(tmpIdx);
-                                     delayTimersList.RemoveAt(tmpIdx);
-                                     spawnCountersList.RemoveAt(tmpIdx);
-                                 }
-                             };
+                            enemiesSpawnedList[i].Add(go);
 
-                             go.GetComponent<EnemyMove>().SetStartEnd(start: spawnPoints[stageList[i].enemySpawnDataList[j].spawnPointIndex],
-                                                                      end: goalPoints[stageList[i].enemySpawnDataList[j].goalPointIndex]);
+                            int tmpId = stageList[i].id;
+                            go.GetComponent<Enemy>().OnDie += () =>
+                            {
+                                int tmpIdx = stageList.FindIndex(stageInfo => stageInfo.id == tmpId);
 
-                             timersList[i][j] = stageList[i].enemySpawnDataList[j].term;
-                             spawnCountersList[i][j]--;
-                                                           
+                                enemiesSpawnedList[tmpIdx].Remove(go);
+                                if (enemiesSpawnedList[tmpIdx].Count == 0)
+                                {
+                                    OnStageFinished(tmpId);
+                                    stageList.RemoveAt(tmpIdx);
+                                    timersList.RemoveAt(tmpIdx);
+                                    delayTimersList.RemoveAt(tmpIdx);
+                                    spawnCountersList.RemoveAt(tmpIdx);
+                                }
+                            };
+
+                            go.GetComponent<EnemyMove>().SetStartEnd(start: spawnPoints[stageList[i].enemySpawnDataList[j].spawnPointIndex],
+                                                                     end: goalPoints[stageList[i].enemySpawnDataList[j].goalPointIndex]);
+
+                            timersList[i][j] = stageList[i].enemySpawnDataList[j].term;
+                            spawnCountersList[i][j]--;
                         }
                         else
                         {
@@ -117,7 +116,6 @@ public class EnemySpawner : MonoBehaviour
                         delayTimersList[i][j] -= Time.deltaTime;
                     }
                 }
-                    
             }
 
             if (stageList[i].id == GamePlay.instance.currentStageId)
@@ -131,8 +129,9 @@ public class EnemySpawner : MonoBehaviour
     {
         LevelInfo levelInfo = GamePlay.instance.levelInfo;
         int currentStage = GamePlay.instance.currentStage;
+
         // 다음 스테이지 없으면 리턴
-        if (currentStage < levelInfo.stagesInfo.Count - 1)
+        if (currentStage >= levelInfo.stagesInfo.Count - 1)
             return;
 
         HashSet<int> spawnPointIndexSet = new HashSet<int>();
@@ -146,8 +145,6 @@ public class EnemySpawner : MonoBehaviour
             _skipButtonsBuffer[index] = Instantiate(_skipButtonUIPrefab,
                                         spawnPoints[index].position + Vector3.up,
                                         _skipButtonUIPrefab.transform.rotation);
-
-
 
             _skipButtonsBuffer[index].AddButtonOnClickListener(() =>
             {

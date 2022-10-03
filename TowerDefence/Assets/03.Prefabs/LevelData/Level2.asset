@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level2
   m_EditorClassIdentifier: 
   lifeInit: 10
-  moneyInit: 1800
+  moneyInit: 2000
   stagesInfo:
   - id: 0
     enemySpawnDataList:
@@ -59,7 +59,7 @@ MonoBehaviour:
     - poolElement:
         prefab: {fileID: 3787745988532606039, guid: 198d15d90b8f2294c89179898759a174, type: 3}
         num: 4
-      spawnPointIndex: 1
-      goalPointIndex: 1
+      spawnPointIndex: 0
+      goalPointIndex: 0
       term: 2
       delay: 3
