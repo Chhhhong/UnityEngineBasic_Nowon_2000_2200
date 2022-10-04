@@ -34107,7 +34107,7 @@ GameObject:
   - component: {fileID: 1585032108}
   - component: {fileID: 1585032107}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas - Play
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -37798,6 +37798,8 @@ MonoBehaviour:
   currentStage: 0
   currentStageId: 0
   _spawner: {fileID: 806658378}
+  _levelCompletePanelPrefab: {fileID: 5592722974000059405, guid: d999a52a8dc74694db1a8ec97361219b, type: 3}
+  _levelFailedPanelPrefab: {fileID: 2012131950343561135, guid: 1878c7bd630bbf84c881bd705d87e38c, type: 3}
 --- !u!4 &1775369320
 Transform:
   m_ObjectHideFlags: 0

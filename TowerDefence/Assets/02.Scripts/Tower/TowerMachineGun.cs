@@ -40,9 +40,9 @@ public class TowerMachineGun : Tower
             GameObject bullet = Instantiate(_bulletPrefab, _firePoints[i].position, Quaternion.identity);
             bullet.GetComponent<ProjectileBullet>()
                 .SetUp(target,
-                       3.0f,
+                       15.0f,
                        _damage,
-                       false,
+                       true,
                        LayerMask.NameToLayer("Ground"),
                        _targetLayer);
         }

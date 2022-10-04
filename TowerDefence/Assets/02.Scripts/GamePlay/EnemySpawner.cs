@@ -89,15 +89,18 @@ public class EnemySpawner : MonoBehaviour
                             {
                                 int tmpIdx = stageList.FindIndex(stageInfo => stageInfo.id == tmpId);
 
-                                enemiesSpawnedList[tmpIdx].Remove(go);
-                                if (enemiesSpawnedList[tmpIdx].Count == 0)
+                                if (tmpIdx >= 0)
                                 {
-                                    OnStageFinished(tmpId);
-                                    stageList.RemoveAt(tmpIdx);
-                                    timersList.RemoveAt(tmpIdx);
-                                    delayTimersList.RemoveAt(tmpIdx);
-                                    spawnCountersList.RemoveAt(tmpIdx);
-                                }
+                                    enemiesSpawnedList[tmpIdx].Remove(go);
+                                    if (enemiesSpawnedList[tmpIdx].Count == 0)
+                                    {
+                                        OnStageFinished(tmpId);
+                                        stageList.RemoveAt(tmpIdx);
+                                        timersList.RemoveAt(tmpIdx);
+                                        delayTimersList.RemoveAt(tmpIdx);
+                                        spawnCountersList.RemoveAt(tmpIdx);
+                                    }
+                                }                                
                             };
 
                             go.GetComponent<EnemyMove>().SetStartEnd(start: spawnPoints[stageList[i].enemySpawnDataList[j].spawnPointIndex],
