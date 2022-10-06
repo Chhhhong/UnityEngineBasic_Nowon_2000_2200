@@ -20537,7 +20537,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 15, z: -8.02}
+  m_LocalPosition: {x: 0, y: 12.41, z: -8.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37653,8 +37653,8 @@ MonoBehaviour:
   currentStage: 0
   currentStageId: 0
   _spawner: {fileID: 806658378}
-  _levelCompletePanelPrefab: {fileID: 5592722974000059405, guid: d999a52a8dc74694db1a8ec97361219b, type: 3}
-  _levelFailedPanelPrefab: {fileID: 2012131950343561135, guid: 1878c7bd630bbf84c881bd705d87e38c, type: 3}
+  _levelCompletePanelPrefab: {fileID: 1652852103772002106, guid: c3c1e61db63c7b94eb8a42acbacb5aa6, type: 3}
+  _levelFailedPanelPrefab: {fileID: 6284173246147802657, guid: 37234aae16fd3614fb8351dfcc0d834d, type: 3}
 --- !u!4 &1775369320
 Transform:
   m_ObjectHideFlags: 0

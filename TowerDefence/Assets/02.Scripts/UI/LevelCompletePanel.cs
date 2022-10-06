@@ -21,6 +21,7 @@ public class LevelCompletePanel : MonoBehaviour
         StartCoroutine(E_StarAnimation(lifeRatio));
         _BackToLobbyButton.onClick.AddListener(buttonAction);
         _ReplayButton.onClick.AddListener(buttonAction);
+        _NextButton.onClick.AddListener(buttonAction);
         gameObject.SetActive(true);
     }
 
@@ -36,5 +37,4 @@ public class LevelCompletePanel : MonoBehaviour
         if (lifeRatio >= 3.0f / 3.0f)
             _star3.GetChild(0).gameObject.SetActive(true);
     }
-
 }

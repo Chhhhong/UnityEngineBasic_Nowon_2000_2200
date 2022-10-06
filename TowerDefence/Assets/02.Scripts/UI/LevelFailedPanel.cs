@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-
 public class LevelFailedPanel : MonoBehaviour
 {
     [SerializeField] private TMP_Text _level;
@@ -16,6 +15,5 @@ public class LevelFailedPanel : MonoBehaviour
         _level.text = level.ToString();
         _BackToLobbyButton.onClick.AddListener(buttonAction);
         _ReplayButton.onClick.AddListener(buttonAction);
-
     }
 }

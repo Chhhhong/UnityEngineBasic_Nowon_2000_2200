@@ -117,7 +117,7 @@ public class GamePlay : MonoBehaviour
                     Pause(true);
                     Instantiate(_levelCompletePanelPrefab).SetUp(levelInfo.level,
                                                                  (float)Player.instance.life / levelInfo.lifeInit,
-                                                                 ()=> Pause(false));
+                                                                 () => Pause(false));
                     state = States.WaitForUser;
                 }
                 break;
@@ -130,7 +130,7 @@ public class GamePlay : MonoBehaviour
                 }
                 break;
             case States.WaitForUser:
-                // nothing to do
+                // nothiong to do
                 break;
             default:
                 break;
@@ -191,4 +191,5 @@ public class GamePlay : MonoBehaviour
         if (life <= 0)
             state = States.LevelFailed;
     }
+
 }

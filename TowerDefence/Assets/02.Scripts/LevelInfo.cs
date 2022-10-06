@@ -28,9 +28,3 @@ public class EnemySpawnData
     public float delay;
 }
 
-[System.Serializable]
-public class PoolElement
-{
-    public GameObject prefab;
-    public int num;
-}

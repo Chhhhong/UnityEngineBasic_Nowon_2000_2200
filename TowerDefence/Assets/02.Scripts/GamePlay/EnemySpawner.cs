@@ -63,6 +63,21 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        LevelInfo levelInfo = GamePlay.instance.levelInfo;
+
+        foreach (StageInfo stageInfo in levelInfo.stagesInfo)
+        {
+            foreach (EnemySpawnData enemySpawnData in stageInfo.enemySpawnDataList)
+            {
+                ObjectPool.instance.AddPoolElement(enemySpawnData.poolElement);
+            }
+        }
+
+        ObjectPool.instance.InstantiateAllPoolElements();
+    }
+
     private void Update()
     {
         for (int i = stageList.Count - 1; i >= 0; i--)
@@ -78,9 +93,12 @@ public class EnemySpawner : MonoBehaviour
                     {
                         if (timersList[i][j] < 0)
                         {
-                            GameObject go = Instantiate(original: stageList[i].enemySpawnDataList[j].poolElement.prefab,
-                                                        position: spawnPoints[stageList[i].enemySpawnDataList[j].spawnPointIndex].position,
-                                                        rotation: Quaternion.identity);
+                            //GameObject go = Instantiate(original: stageList[i].enemySpawnDataList[j].poolElement.prefab,
+                            //                           position: spawnPoints[stageList[i].enemySpawnDataList[j].spawnPointIndex].position,
+                            //                           rotation: Quaternion.identity);
+
+                            GameObject go = ObjectPool.instance.Spawn(stageList[i].enemySpawnDataList[j].poolElement.name,
+                                                                      spawnPoints[stageList[i].enemySpawnDataList[j].spawnPointIndex].position);
 
                             enemiesSpawnedList[i].Add(go);
 
@@ -100,7 +118,7 @@ public class EnemySpawner : MonoBehaviour
                                         delayTimersList.RemoveAt(tmpIdx);
                                         spawnCountersList.RemoveAt(tmpIdx);
                                     }
-                                }                                
+                                }
                             };
 
                             go.GetComponent<EnemyMove>().SetStartEnd(start: spawnPoints[stageList[i].enemySpawnDataList[j].spawnPointIndex],
