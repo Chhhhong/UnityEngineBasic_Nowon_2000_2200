@@ -10,7 +10,8 @@ public class Tower : MonoBehaviour
     protected Transform tr;
     [SerializeField] private Transform rotatePoint;
     [SerializeField] protected float detectRange;
-    [SerializeField] protected LayerMask _targetLayer;
+    [SerializeField] protected LayerMask targetLayer;
+    [SerializeField] protected LayerMask touchLayer;
     protected Transform target;
     
     
@@ -22,7 +23,7 @@ public class Tower : MonoBehaviour
 
     protected virtual void Update()
     {
-        Collider[] cols = Physics.OverlapSphere(tr.position, detectRange, _targetLayer);
+        Collider[] cols = Physics.OverlapSphere(tr.position, detectRange, targetLayer);
 
         if (cols.Length > 0)
         {

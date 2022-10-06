@@ -51,10 +51,12 @@ MonoBehaviour:
   node: {fileID: 0}
   rotatePoint: {fileID: 6548339369781743219}
   detectRange: 2.5
-  _targetLayer:
+  targetLayer:
     serializedVersion: 2
     m_Bits: 32768
-  _bulletPrefab: {fileID: 3648424225184002995, guid: 7af1052121aa883488c124375f1fd6b7, type: 3}
+  touchLayer:
+    serializedVersion: 2
+    m_Bits: 1048576
   _firePoints:
   - {fileID: 7626258318700226779}
   - {fileID: 6449786641741055847}
