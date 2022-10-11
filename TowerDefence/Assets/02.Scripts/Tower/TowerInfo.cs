@@ -6,7 +6,7 @@ public enum TowerTypes
 {
     MachineGun,
     RocketLauncher,
-    Laser
+    LaserLauncher
 }
 
 [CreateAssetMenu(fileName = "TowerInfo", menuName = "TowerDefence/Create TowerInfo")]

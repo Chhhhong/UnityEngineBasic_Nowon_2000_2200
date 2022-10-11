@@ -19,7 +19,7 @@ public class EnemyMove : MonoBehaviour
 
     private Vector3 _targetPos;
     private Vector3 _dir;
-    private float _posTolerance = 0.05f;
+    private float _posTolerance = 0.1f;
 
     public void SetStartEnd(Transform start, Transform end)
     {
@@ -65,6 +65,7 @@ public class EnemyMove : MonoBehaviour
             }
         }
 
+        Debug.Log(_targetPos);
         _tr.LookAt(_targetPos);
         _tr.Translate(_dir * speed * Time.fixedDeltaTime, Space.World);
     }

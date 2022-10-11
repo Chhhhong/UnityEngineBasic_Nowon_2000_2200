@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking.Types;
 using UnityEngine.UI;
 public class EnemySpawner : MonoBehaviour
 {
@@ -161,7 +162,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnEnemyDie(GameObject go, int id)
     {
-  
         int tmpIdx = stageList.FindIndex(stageInfo => stageInfo.id == id);
 
         if (tmpIdx >= 0)

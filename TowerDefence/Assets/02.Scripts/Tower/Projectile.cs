@@ -53,4 +53,12 @@ public class Projectile : MonoBehaviour
             // todo -> explode
         }
     }
+
+    //protected virtual void OnCollisionEnter(Collision collision)
+    //{
+    //    if (1<< collision.gameObject.layer == touchLayer)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 }
