@@ -20,7 +20,7 @@ public class ProjectileRocket : Projectile
                 if (hits[i].transform.TryGetComponent(out Enemy enemy))
                 {
                     enemy.hp -= (int)((_explosionRange - Vector3.Distance(transform.position, enemy.transform.position)) * damage);
-                    
+                    enemy.buffManager.ActiveBuff(new BuffBurning<Enemy>(damage / 5, 1.0f), 5.0f);
                 }
             }
             GameObject effect = ObjectPool.instance.Spawn("RocketExplosionEffect", tr.position, Quaternion.LookRotation(tr.position - other.transform.position));

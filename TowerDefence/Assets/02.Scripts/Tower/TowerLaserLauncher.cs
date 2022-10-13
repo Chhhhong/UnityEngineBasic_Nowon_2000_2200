@@ -9,21 +9,27 @@ public class TowerLaserLauncher : Tower
     [SerializeField] private Transform _firePoint;
 
     [SerializeField] private float _damage;
-    private float _damageStep;
+    private int _damageStep;
     private int damageStep
     {
+        get
+        {
+            return _damageStep;
+        }
         set
         {
             _damageStep = value;
 
             _laserBeam.startWidth = 0.05f * (1 + _damageStep);
             _laserBeam.endWidth = 0.05f * (1 + _damageStep);
-            _laserHitEffect.transform.localScale = Vector3.one * (1 + _damageStep * 0.2f);  
+            _laserHitEffect.transform.localScale = Vector3.one * (1 + _damageStep * 0.2f);
         }
     }
     [SerializeField] private int _damageGain;
     [SerializeField] private float _damageChargeTime;
     private float _damageChargeTimer;
+    private BuffSlowingDown<Enemy> _slowingDownBuff = new BuffSlowingDown<Enemy>(0.5f);
+    private Enemy _enemyMem;
 
     private void FixedUpdate()
     {
@@ -42,12 +48,19 @@ public class TowerLaserLauncher : Tower
 
             if (_damageStep > 0)
                 damageStep = 0;
+
+            if (_enemyMem != null &&
+                _enemyMem.gameObject.activeSelf &&
+                _enemyMem.buffManager.IsBuffExist(_slowingDownBuff))
+                _enemyMem.buffManager.DeactiveBuff(_slowingDownBuff);
         }
         else
         {
             _laserBeam.SetPosition(0, _firePoint.position);
             _laserBeam.SetPosition(1, target.position);
-            _laserBeam.enabled = true;
+
+            if (_laserBeam.enabled == false)
+                _laserBeam.enabled = true;
 
             if (_laserHitEffect.isStopped)
                 _laserHitEffect.Play();
@@ -56,7 +69,6 @@ public class TowerLaserLauncher : Tower
                                                    direction: target.position - _firePoint.position,
                                                    maxDistance: Vector3.Distance(target.position, _firePoint.position),
                                                    layerMask: targetLayer);
-
             for (int i = 0; i < hits.Length; i++)
             {
                 if (hits[i].collider.transform == target)
@@ -67,24 +79,27 @@ public class TowerLaserLauncher : Tower
                 }
             }
 
-            target.GetComponent<Enemy>().hp -= (int)(_damage * (1 + _damageStep) * _damageGain * Time.fixedDeltaTime);
+            if (target.TryGetComponent(out _enemyMem))
+            {
+                _enemyMem.hp -= (int)(_damage * (1 + _damageStep) * _damageGain * Time.fixedDeltaTime);
+
+                if (_enemyMem.buffManager.IsBuffExist(_slowingDownBuff) == false)
+                    _enemyMem.buffManager.ActiveBuff(_slowingDownBuff, 9999.0f);
+            }
+
 
             if (_damageChargeTimer < 0)
             {
-                if (_damageStep < 2)
+                if ( _damageStep < 2)
                 {
-                    _damageStep++;
+                    damageStep++;
                     _damageChargeTimer = _damageChargeTime;
-                }   
+                }
             }
             else
             {
                 _damageChargeTimer -= Time.fixedDeltaTime;
             }
-            
-
         }
     }
-    
-
 }

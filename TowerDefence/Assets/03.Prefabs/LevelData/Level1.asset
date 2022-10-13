@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   lifeInit: 10
-  moneyInit: 2000
+  moneyInit: 5000
   stagesInfo:
   - id: 0
     enemySpawnDataList:

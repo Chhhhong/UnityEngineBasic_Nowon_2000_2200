@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4430927884767338487}
   - component: {fileID: 801216450355111447}
-  - component: {fileID: 2813609039192854143}
+  - component: {fileID: 3436428827021260789}
   m_Layer: 12
   m_Name: RocketLauncher1
   m_TagString: Untagged
@@ -92,7 +92,7 @@ MonoBehaviour:
   - {fileID: 3509858616458976556}
   _damage: 20
   _reloadTime: 2
---- !u!135 &2813609039192854143
+--- !u!135 &3436428827021260789
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

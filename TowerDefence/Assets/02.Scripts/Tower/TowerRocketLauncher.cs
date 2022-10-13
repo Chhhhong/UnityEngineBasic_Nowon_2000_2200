@@ -40,7 +40,7 @@ public class TowerRocketLauncher : Tower
 
             rocket.GetComponent<ProjectileRocket>()
                 .SetUp(target,
-                       5.0f,
+                       10.0f,
                        _damage,
                        false,
                        touchLayer,

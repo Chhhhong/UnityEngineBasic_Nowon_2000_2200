@@ -134,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4430927884767338487}
   - component: {fileID: 801216450355111447}
-  - component: {fileID: 5144632781745737687}
+  - component: {fileID: 156250042076552925}
   m_Layer: 12
   m_Name: RocketLauncher3
   m_TagString: Untagged
@@ -188,7 +188,7 @@ MonoBehaviour:
   - {fileID: 5684721598258838274}
   _damage: 25
   _reloadTime: 1.5
---- !u!135 &5144632781745737687
+--- !u!135 &156250042076552925
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -56,7 +56,7 @@ public class Projectile : MonoBehaviour
 
     //protected virtual void OnCollisionEnter(Collision collision)
     //{
-    //    if (1<< collision.gameObject.layer == touchLayer)
+    //    if (1 << collision.gameObject.layer == touchLayer)
     //    {
     //        Destroy(gameObject);
     //    }
