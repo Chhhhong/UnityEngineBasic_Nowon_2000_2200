@@ -87,7 +87,7 @@ public class Movement : MonoBehaviour
         {
             _rb.MovePosition(Vector3.Lerp(GetVector(_current), GetVector(_current - 1), (1.0f - _moveTimer / _moveTime)));
 
-            _moveTimer = Time.fixedDeltaTime;
+            _moveTimer -= Time.fixedDeltaTime;
 
             if (_moveTimer < 0)
             {
@@ -99,7 +99,7 @@ public class Movement : MonoBehaviour
         {
             _rb.MovePosition(Vector3.Lerp(GetVector(_current), GetVector(_current + 1), (1.0f - _moveTimer / _moveTime)));
 
-            _moveTimer = Time.fixedDeltaTime;
+            _moveTimer -= Time.fixedDeltaTime;
 
             if (_moveTimer < 0)
             {
