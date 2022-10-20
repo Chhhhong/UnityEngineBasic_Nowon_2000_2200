@@ -15,7 +15,7 @@
 
     private void Awake()
     {
-        _machine = new StateMachineBase<StateTypes>();
+        _machine = new StateMachineBase<StateTypes>(this.gameObject);
     }
 
     private void Update()
