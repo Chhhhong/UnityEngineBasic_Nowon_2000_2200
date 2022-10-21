@@ -2,18 +2,28 @@
 public abstract class StateBase<T> : IState<T> where T : Enum
 {
     protected AnimationManager animationManager;
-    public StateBase(StateMachineBase<T> stateMachine, T machineState)
+    protected StateMachineBase<T> stateMachine;
+    protected T canExecuteConditionMask;
+    protected T nextTarget;
+
+    public IState<T>.Commands current { get; protected set; }
+
+    public virtual bool canExecute => canExecuteConditionMask.HasFlag(stateMachine.currentType) &&
+                                      animationManager.isPreviousStateHasFinished;
+
+    public T machineState { get; private set; }
+
+    public StateBase(StateMachineBase<T> stateMachine,
+                     T machineState,
+                     T canExecuteConditionMask,
+                     T nextTarget)
     {
         this.stateMachine = stateMachine;
         this.machineState = machineState;
+        this.canExecuteConditionMask = canExecuteConditionMask;
+        this.nextTarget = nextTarget;
         animationManager = stateMachine.owner.GetComponent<AnimationManager>();
     }
-    protected StateMachineBase<T> stateMachine;
-    public IState<T>.Commands current { get; protected set; }
-
-    public virtual bool canExecute => true;
-
-    public T machineState { get; private set; }
 
     public virtual void Execute()
     {
@@ -47,7 +57,7 @@ public abstract class StateBase<T> : IState<T> where T : Enum
                 MoveNext();
                 break;
             case IState<T>.Commands.WaitForFinished:
-                MoveNext();
+                next = nextTarget;
                 break;
             default:
                 break;

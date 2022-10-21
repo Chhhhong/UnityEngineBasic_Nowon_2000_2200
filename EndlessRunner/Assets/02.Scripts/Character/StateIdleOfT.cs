@@ -1,15 +1,10 @@
 ﻿using System;
-public class StateJump<T> : StateBase<T> where T : Enum
+public class StateIdle<T> : StateBase<T> where T : Enum
 {
-    private GroundDetector _groundDetector;
-    public StateJump(StateMachineBase<T> stateMachine, T machineState) 
-        : base(stateMachine, machineState)
+    public StateIdle(StateMachineBase<T> stateMachine, T machineState, T canExecuteConditionMask, T nextTarget) 
+        : base(stateMachine, machineState, canExecuteConditionMask, nextTarget)
     {
-        _groundDetector = stateMachine.owner.GetComponentInChildren<GroundDetector>();
     }
-
-    public override bool canExecute => base.canExecute &&
-                                       _groundDetector.isDetected;
 
     public override T Update()
     {
@@ -21,26 +16,17 @@ public class StateJump<T> : StateBase<T> where T : Enum
                 break;
             case IState<T>.Commands.Prepare:
                 {
-                    animationManager.SetBool("DoJump", true);
+                    animationManager.SetBool("Idle", true);
                     MoveNext();
                 }
                 break;
             case IState<T>.Commands.Casting:
-                {
-                    MoveNext();
-                }
+                MoveNext();
                 break;
             case IState<T>.Commands.WaitForCastingFinished:
                 {
-                    if (_groundDetector.isDetected == false)
-                    {
-                        animationManager.SetBool("DoJump", false);
-                        MoveNext();
-                    }
-                    else if (animationManager.GetNormalizedTime() > 0.5f)
-                    {
-                        current = IState<T>.Commands.Finish;
-                    }
+                    animationManager.SetBool("Idle", false);
+                    MoveNext();
                 }
                 break;
             case IState<T>.Commands.Action:

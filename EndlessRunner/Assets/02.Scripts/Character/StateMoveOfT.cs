@@ -1,9 +1,10 @@
 ﻿using System;
-public class StateIdle<T> : StateBase<T> where T : Enum
+public class StateMove<T> : StateBase<T> where T : Enum
 {
-    public StateIdle(StateMachineBase<T> stateMachine, T machineState) 
-        : base(stateMachine, machineState)
+    public StateMove(StateMachineBase<T> stateMachine, T machineState, T canExecuteConditionMask, T nextTarget) 
+        : base(stateMachine, machineState, canExecuteConditionMask, nextTarget)
     {
+
     }
 
     public override T Update()
@@ -16,7 +17,7 @@ public class StateIdle<T> : StateBase<T> where T : Enum
                 break;
             case IState<T>.Commands.Prepare:
                 {
-                    animationManager.SetBool("Idle", true);
+                    animationManager.SetBool("DoMove", true);
                     MoveNext();
                 }
                 break;
@@ -25,7 +26,7 @@ public class StateIdle<T> : StateBase<T> where T : Enum
                 break;
             case IState<T>.Commands.WaitForCastingFinished:
                 {
-                    animationManager.SetBool("Idle", false);
+                    animationManager.SetBool("DoMove", false);
                     MoveNext();
                 }
                 break;
