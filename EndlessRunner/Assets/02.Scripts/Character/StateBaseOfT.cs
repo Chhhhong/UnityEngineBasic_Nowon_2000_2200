@@ -68,7 +68,7 @@ public abstract class StateBase<T> : IState<T> where T : Enum
 
     public void MoveNext()
     {
-        if (current >= IState<T>.Commands.WaitForCastingFinished)
+        if (current >= IState<T>.Commands.WaitForFinished)
             throw new System.Exception($"[{this.GetType()}] : not enable to move next");
 
         current++;
