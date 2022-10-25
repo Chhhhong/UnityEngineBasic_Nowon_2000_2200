@@ -10,6 +10,8 @@ public class AnimationManager : MonoBehaviour
     private int _monitorOnStateHashMem;
     private int _monitorOffStateHash;
     public bool isPreviousStateHasFinished => _monitorOnStateHashMem == _monitorOffStateHash;
+    public bool isCastingFinished { get; private set; }
+    public bool SetCastingFinished() => isCastingFinished = true;
     public void Play(string clipName) => _animator.Play(clipName);
     public void SetBool(string name, bool value) => _animator.SetBool(name, value);
     public void SetFloat(string name, float value) => _animator.SetFloat(name, value);
@@ -30,6 +32,7 @@ public class AnimationManager : MonoBehaviour
             {
                 _monitorOnStateHashMem = _monitorOnStateHash;
                 _monitorOnStateHash = hash;
+                isCastingFinished = false;
             };
 
             monitor.OnExit += (hash) =>

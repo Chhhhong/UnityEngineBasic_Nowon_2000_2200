@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Unity.Animations.SpringBones.GameObjectExtensions;
 using UnityEngine;
 
 public class CharacterPlayer : CharacterBase
@@ -19,6 +20,14 @@ public class CharacterPlayer : CharacterBase
     private StateMachineBase<StateTypes> _machine;
     [SerializeField] StateTypes _currentType => _machine.currentType;
     [SerializeField] IState<StateTypes>.Commands _currentCommand => _machine.current.current;
+
+    [Header("Detectors")]
+    [SerializeField] private GroundDetector _groundDetector;
+    [SerializeField] private WallDetector _wallDetector_L;
+    [SerializeField] private WallDetector _wallDetector_R;
+
+    [Header("Movement")]
+    [SerializeField] private Movement _movement;
 
     //===========================================================================
     //****************************** Public Methods *****************************
@@ -44,6 +53,35 @@ public class CharacterPlayer : CharacterBase
     {
         InputHandler.RegisterKeyDownAction(InputHandler.SHORTCUT_PLAYER_JUMP,
                                            () => _machine.ChangeState(StateTypes.Jump));
+        InputHandler.RegisterKeyDownAction(InputHandler.SHORTCUT_PLAYER_SLIDE,
+                                           () => _machine.ChangeState(StateTypes.Slide));
+
+        InputHandler.RegisterKeyDownAction(InputHandler.SHORTCUT_PLAYER_MOVE_LEFT,
+                                           () =>
+                                           {
+                                               if (_groundDetector.isDetected == false &&
+                                                   _wallDetector_L.isDetected == true)
+                                               {
+                                                   _machine.ChangeState(StateTypes.WallRun);
+                                               }
+                                               else
+                                               {
+                                                   _movement.doMoveLeft = true;
+                                               }
+                                           });
+        InputHandler.RegisterKeyDownAction(InputHandler.SHORTCUT_PLAYER_MOVE_RIGHT,
+                                           () =>
+                                           {
+                                               if (_groundDetector.isDetected == false &&
+                                                   _wallDetector_R.isDetected == true)
+                                               {
+                                                   _machine.ChangeState(StateTypes.WallRun);
+                                               }
+                                               else
+                                               {
+                                                   _movement.doMoveRight = true;
+                                               }
+                                           });
     }
 
     private void Update()

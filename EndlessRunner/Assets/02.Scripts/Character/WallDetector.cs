@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundDetector : MonoBehaviour
+public class WallDetector : MonoBehaviour
 {
     public bool isDetected;
 
-    [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private LayerMask _wallLayer;
 
     private void OnTriggerStay(Collider other)
     {
-        if ((1 << other.gameObject.layer & _groundLayer) > 0)
+        if ((1<<other.gameObject.layer & _wallLayer) > 0)
             isDetected = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if ((1 << other.gameObject.layer & _groundLayer) > 0)
+        if ((1 << other.gameObject.layer & _wallLayer) > 0)
             isDetected = false;
     }
 }
