@@ -22,12 +22,12 @@ TagManager:
   - 
   - MapUnit
   - MapUnitCollision
-  - 
+  - Obstacle
   - Wall
   - 
   - MapEnd
   - 
-  - 
+  - Item
   - 
   - 
   - 

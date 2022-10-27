@@ -5,4 +5,10 @@ public class StateDie<T> : StateBase<T> where T : Enum
         : base(stateMachine, machineState, canExecuteConditionMask, nextTarget)
     {
     }
+
+    public override void Execute()
+    {
+        base.Execute();
+        UnityEngine.Debug.Log("DieStateExecuted");
+    }
 }

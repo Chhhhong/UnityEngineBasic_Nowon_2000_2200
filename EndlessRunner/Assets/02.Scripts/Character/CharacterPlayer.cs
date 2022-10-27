@@ -37,6 +37,11 @@ public class CharacterPlayer : CharacterBase
         _machine.ChangeState(StateTypes.Move);
     }
 
+    public void ChangeMachineState(StateTypes newStateType)
+    {
+        _machine.ChangeState(newStateType);
+    }
+
     //===========================================================================
     //****************************** Private Methods *****************************
     //===========================================================================
