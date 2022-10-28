@@ -5,7 +5,7 @@ public class StateJump<T> : StateBase<T> where T : Enum
     private GroundDetector _groundDetector;
     private Rigidbody _rb;
     private CharacterBase _character;
-    public StateJump(StateMachineBase<T> stateMachine, T machineState, T canExecuteConditionMask, T nextTarget) 
+    public StateJump(StateMachineBase<T> stateMachine, T machineState, T canExecuteConditionMask, T nextTarget)
         : base(stateMachine, machineState, canExecuteConditionMask, nextTarget)
     {
         _groundDetector = stateMachine.owner.GetComponentInChildren<GroundDetector>();
@@ -33,7 +33,7 @@ public class StateJump<T> : StateBase<T> where T : Enum
                 }
                 break;
             case IState<T>.Commands.Casting:
-                {
+                {   
                     MoveNext();
                 }
                 break;

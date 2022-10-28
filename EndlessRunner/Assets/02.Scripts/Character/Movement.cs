@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _moveTimer;
     private float _moveTime = 0.1f;
     private bool _doMoveLeft;
-    public  bool doMoveLeft
+    public bool doMoveLeft
     {
         set
         {
@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
                 return;
 
             if (value &&
-                 _current != Pos.Right)
+                _current != Pos.Right)
             {
                 _moveTimer = _moveTime;
                 _doMoveRight = value;
@@ -59,17 +59,17 @@ public class Movement : MonoBehaviour
     public bool isMoving => _doMoveLeft || _doMoveRight;
     private Rigidbody _rb;
 
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _centerPos = transform.position;
-        _leftPos = transform.position + Vector3.left * 1.5f;
-        _rightPos = transform.position + Vector3.right * 1.5f;
+        _leftPos = transform.position + Vector3.left;
+        _rightPos = transform.position + Vector3.right;
         _current = Pos.Center;
         isMovable = true;
     }
 
-    
 
     private void FixedUpdate()
     {
@@ -84,7 +84,7 @@ public class Movement : MonoBehaviour
         if (_doMoveLeft)
         {
             _rb.MovePosition(Vector3.Lerp(GetVector(_current), GetVector(_current - 1), (1.0f - _moveTimer / _moveTime)));
-
+            
             _moveTimer -= Time.fixedDeltaTime;
 
             if (_moveTimer < 0)

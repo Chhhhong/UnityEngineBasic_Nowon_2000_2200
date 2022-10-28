@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Unity.Animations.SpringBones.GameObjectExtensions;
 using UnityEngine;
-
 public class CharacterPlayer : CharacterBase
 {
     [Flags]
@@ -18,7 +17,7 @@ public class CharacterPlayer : CharacterBase
         All = ~Idle
     }
     private StateMachineBase<StateTypes> _machine;
-    [SerializeField] StateTypes _currentType => _machine.currentType;
+    [SerializeField] StateTypes _currenType => _machine.currentType;
     [SerializeField] IState<StateTypes>.Commands _currentCommand => _machine.current.current;
 
     [Header("Detectors")]
@@ -28,23 +27,23 @@ public class CharacterPlayer : CharacterBase
 
     [Header("Movement")]
     [SerializeField] private Movement _movement;
+    //==============================================================================
+    //****************************** Public Methods ********************************
+    //==============================================================================
 
-    //===========================================================================
-    //****************************** Public Methods *****************************
-    //===========================================================================
     public void StartMove()
     {
         _machine.ChangeState(StateTypes.Move);
     }
-
+    
     public void ChangeMachineState(StateTypes newStateType)
     {
         _machine.ChangeState(newStateType);
     }
 
-    //===========================================================================
-    //****************************** Private Methods *****************************
-    //===========================================================================
+    //==============================================================================
+    //****************************** Private Methods *******************************
+    //==============================================================================
 
     private void Awake()
     {
@@ -56,11 +55,12 @@ public class CharacterPlayer : CharacterBase
 
     private void RegisterAllKeyActions()
     {
-        InputHandler.RegisterKeyDownAction(InputHandler.SHORTCUT_PLAYER_JUMP,
+        InputHandler.RegisterKeyDownAction(InputHandler.SHORTCUT_PLAYER_JUMP, 
                                            () => _machine.ChangeState(StateTypes.Jump));
         InputHandler.RegisterKeyDownAction(InputHandler.SHORTCUT_PLAYER_SLIDE,
                                            () => _machine.ChangeState(StateTypes.Slide));
 
+        
         InputHandler.RegisterKeyDownAction(InputHandler.SHORTCUT_PLAYER_MOVE_LEFT,
                                            () =>
                                            {
@@ -87,13 +87,16 @@ public class CharacterPlayer : CharacterBase
                                                    _movement.doMoveRight = true;
                                                }
                                            });
+
+
     }
 
     private void Update()
     {
-        Debug.Log($"{_currentType}, {_currentCommand}");
+        Debug.Log($"{_currenType}, {_currentCommand}");
         _machine.Update();
     }
+
 
     private Dictionary<StateTypes, StateTypes> GetStateExecuteConditionMask()
     {

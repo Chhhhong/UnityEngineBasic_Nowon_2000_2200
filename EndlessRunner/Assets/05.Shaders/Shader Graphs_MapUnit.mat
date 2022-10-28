@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1821715814267704524
+--- !u!114 &-2582712473093551003
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shader Graphs_MapUnit
-  m_Shader: {fileID: -6465566751694194690, guid: b6472aeebe5515d4b9d6858e67c27740, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 97c26efb62f129649a37b79d8cd82998, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -52,12 +52,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0
-    - _CurveX: 0.5
+    - _CurveX: 1.22
     - _CurveY: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
-    - _PlayerOffset: {r: 0, g: -1.080649, b: 3.535383, a: 0}
+    - _PlayerOffset: {r: 0, g: 1.35, b: -2.5, a: 0}
   m_BuildTextureStacks: []

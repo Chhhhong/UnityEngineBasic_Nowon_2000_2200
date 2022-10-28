@@ -10,7 +10,5 @@ public class RandomItemSpawner : MonoBehaviour
     private void OnEnable()
     {
         GameObject item = Instantiate(_spawnItems[Random.Range(0, _spawnItems.Count)], _spawnPoint);
-        item.transform.SetParent(null);
-        item.transform.localScale = Vector3.one;
     }
 }

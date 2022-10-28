@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 60476919}
   - component: {fileID: 60476921}
   - component: {fileID: 60476920}
+  - component: {fileID: 6598570424433679102}
   m_Layer: 0
   m_Name: LIGHT_EyeHL_R
   m_TagString: Untagged
@@ -155,7 +156,7 @@ ParentConstraint:
   m_TranslationAtRest: {x: 0.0558, y: 1.4819, z: 0.0762}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: 0.05572126, y: 0.07585752, z: 0.098937966}
+  - {x: 0.055721257, y: 0.0758574, z: 0.09893796}
   m_RotationOffsets:
   - {x: -6.829918, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -169,6 +170,26 @@ ParentConstraint:
   m_Sources:
   - sourceTransform: {fileID: 1979290156212971125}
     weight: 1
+--- !u!114 &6598570424433679102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60476918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &432312901
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +680,7 @@ GameObject:
   - component: {fileID: 1379094528}
   - component: {fileID: 1379094530}
   - component: {fileID: 1379094529}
+  - component: {fileID: 7664557142188328889}
   m_Layer: 0
   m_Name: LIGHT_EyeHL_L
   m_TagString: Untagged
@@ -755,7 +777,7 @@ ParentConstraint:
   m_TranslationAtRest: {x: -0.0558, y: 1.4819, z: 0.0762}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: -0.055878736, y: 0.07585752, z: 0.098937966}
+  - {x: -0.05587874, y: 0.0758574, z: 0.09893796}
   m_RotationOffsets:
   - {x: -6.829918, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -769,6 +791,26 @@ ParentConstraint:
   m_Sources:
   - sourceTransform: {fileID: 1979290156212971125}
     weight: 1
+--- !u!114 &7664557142188328889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379094527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1465205153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,7 +1223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f2c836f3e5c029140a0cc913d7df766a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.619
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f2c836f3e5c029140a0cc913d7df766a, type: 3}
       propertyPath: m_LocalPosition.z

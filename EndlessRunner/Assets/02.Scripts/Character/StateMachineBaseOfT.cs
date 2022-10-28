@@ -12,7 +12,7 @@ public class StateMachineBase<T> where T : Enum
     protected Dictionary<T, T> canExecuteConditionMasks;
     protected Dictionary<T, T> transitionPairs;
     public StateMachineBase(GameObject owner, 
-                            Dictionary<T, T> canExecuteConditionMasks,
+                            Dictionary<T, T> canExecuteConditionMasks, 
                             Dictionary<T, T> transitionPairs)
     {
         this.owner = owner;
@@ -21,11 +21,11 @@ public class StateMachineBase<T> where T : Enum
         InitStates();
     }
 
-    public void ChangeState(T newType) 
+    public void ChangeState(T newType)
     {
         if (EqualityComparer<T>.Default.Equals(currentType, newType))
             return;
-        
+
         if (states[newType].canExecute)
         {
             current.Reset();
@@ -41,6 +41,7 @@ public class StateMachineBase<T> where T : Enum
             ChangeState(current.Update());
     }
 
+
     private void InitStates()
     {
         states = new Dictionary<T, IState<T>>();
@@ -55,11 +56,10 @@ public class StateMachineBase<T> where T : Enum
             try
             {
                 ConstructorInfo constructorInfo
-                = stateType.GetConstructor(new Type[] { typeof(StateMachineBase<T>),
-                                                        typeof(T),
-                                                        typeof(T),
-                                                        typeof(T) });
-
+                    = stateType.GetConstructor(new Type[] { typeof(StateMachineBase<T>),
+                                                            typeof(T),
+                                                            typeof(T),
+                                                            typeof(T) });
 
                 IState<T> state = constructorInfo.Invoke(new object[] { this,
                                                                         value,
@@ -70,8 +70,7 @@ public class StateMachineBase<T> where T : Enum
             catch (Exception e)
             {
                 Debug.LogWarning($"[StateMachineBase] : Failed to create state {value}, {e.Message}");
-            }
-
+            }            
         }
 
         current = states[default(T)];

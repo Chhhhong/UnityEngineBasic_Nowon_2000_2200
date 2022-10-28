@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
-
 public class Player : MonoBehaviour
 {
     public static Player instance;
@@ -41,7 +41,6 @@ public class Player : MonoBehaviour
     private CharacterPlayer _character;
     [SerializeField] private LayerMask _itemLayer;
 
-
     private void Awake()
     {
         instance = this;
@@ -49,9 +48,7 @@ public class Player : MonoBehaviour
 
         _hpIcons = new List<GameObject>();
         for (int i = 0; i < _hpIconContent.childCount; i++)
-        {
             _hpIcons.Add(_hpIconContent.GetChild(i).gameObject);
-        }
 
         _hpMax = _hpIcons.Count;
         hp = _hpInit;

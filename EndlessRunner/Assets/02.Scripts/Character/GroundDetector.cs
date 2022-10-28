@@ -5,18 +5,30 @@ using UnityEngine;
 public class GroundDetector : MonoBehaviour
 {
     public bool isDetected;
-
+    [SerializeField] private Vector3 _offset;
+    [SerializeField] private float _radius;
     [SerializeField] private LayerMask _groundLayer;
+    private Transform _tr;
 
-    private void OnTriggerStay(Collider other)
+    private void Awake()
     {
-        if ((1 << other.gameObject.layer & _groundLayer) > 0)
-            isDetected = true;
+        _tr = GetComponent<Transform>();
     }
 
-    private void OnTriggerExit(Collider other)
+    private void FixedUpdate()
     {
-        if ((1 << other.gameObject.layer & _groundLayer) > 0)
+        Collider[] grounds = Physics.OverlapSphere(_tr.position + _offset, _radius, _groundLayer);
+        if (grounds.Length > 0)
+            isDetected = true;
+        else
             isDetected = false;
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position + _offset, _radius);
+    }
+
+
 }

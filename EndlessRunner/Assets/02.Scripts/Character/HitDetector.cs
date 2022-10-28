@@ -13,5 +13,4 @@ public class HitDetector : MonoBehaviour
             Player.instance.hp -= 10;
         }
     }
-
 }

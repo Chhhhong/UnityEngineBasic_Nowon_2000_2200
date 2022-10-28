@@ -10,7 +10,7 @@ public class MapUnit : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Translate(Vector3.back * 4.0f * Time.fixedDeltaTime);
+        transform.Translate(Vector3.back * 5.0f * Time.fixedDeltaTime);
     }
 
     private void OnTriggerEnter(Collider other)

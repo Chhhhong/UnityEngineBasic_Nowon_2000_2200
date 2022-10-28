@@ -1,10 +1,9 @@
 ﻿using System;
 public class StateMove<T> : StateBase<T> where T : Enum
 {
-    public StateMove(StateMachineBase<T> stateMachine, T machineState, T canExecuteConditionMask, T nextTarget) 
+    public StateMove(StateMachineBase<T> stateMachine, T machineState, T canExecuteConditionMask, T nextTarget)
         : base(stateMachine, machineState, canExecuteConditionMask, nextTarget)
     {
-
     }
 
     public override T Update()

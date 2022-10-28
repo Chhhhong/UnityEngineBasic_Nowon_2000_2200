@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 10bc96539501e3d4381b51dd898a8037
+guid: c09d9bc3e699d2043a02afa782554c1f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
@@ -7,7 +7,7 @@ ModelImporter:
       74: -203655887218126122
     second: Wall Run Left
   - first:
-      74: -8739244265790880182
+      74: 2670714732383387891
     second: Wall Run Right
   externalObjects: {}
   materials:

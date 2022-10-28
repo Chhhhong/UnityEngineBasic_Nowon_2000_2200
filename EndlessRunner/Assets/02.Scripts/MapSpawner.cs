@@ -15,9 +15,9 @@ public class MapSpawner : MonoBehaviour
     [SerializeField] private Transform _mapUnitsCenterParent;
     [SerializeField] private Transform _mapUnitsRightParent;
 
-    private LinkedList<MapUnit> _mapUnitsLeft = new LinkedList<MapUnit> ();
-    private LinkedList<MapUnit> _mapUnitsCenter = new LinkedList<MapUnit> ();
-    private LinkedList<MapUnit> _mapUnitsRight = new LinkedList<MapUnit> ();
+    private LinkedList<MapUnit> _mapUnitsLeft = new LinkedList<MapUnit>();
+    private LinkedList<MapUnit> _mapUnitsCenter = new LinkedList<MapUnit>();
+    private LinkedList<MapUnit> _mapUnitsRight = new LinkedList<MapUnit>();
 
     private MapUnit _tmpMapUnit;
 
@@ -80,7 +80,7 @@ public class MapSpawner : MonoBehaviour
                         Spawn(Pos.Left);
                     };
                     _mapUnitsLeft.AddLast(mapUnit);
-                }                
+                }
                 break;
             case Pos.Center:
                 {

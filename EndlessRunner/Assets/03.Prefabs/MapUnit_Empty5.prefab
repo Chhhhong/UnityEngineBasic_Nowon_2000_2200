@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4763027858156754809
+--- !u!1 &557517642436807445
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4800521954862534630}
-  - component: {fileID: 4171461706345108079}
-  - component: {fileID: 1150525332}
+  - component: {fileID: 376729555567369225}
+  - component: {fileID: 3863348724422728705}
+  - component: {fileID: 3637380989671353591}
   m_Layer: 15
   m_Name: MapUnit_Empty5
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4800521954862534630
+--- !u!4 &376729555567369225
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4763027858156754809}
+  m_GameObject: {fileID: 557517642436807445}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1, z: 5}
@@ -33,29 +33,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4171461706345108079
+--- !u!65 &3863348724422728705
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4763027858156754809}
+  m_GameObject: {fileID: 557517642436807445}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1150525332
+--- !u!114 &3637380989671353591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4763027858156754809}
+  m_GameObject: {fileID: 557517642436807445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65a106f7926cc54449e39561b35c409d, type: 3}
+  m_Script: {fileID: 11500000, guid: 586ba65bb79959e4bb853e9f95d99b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   length: 5

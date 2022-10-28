@@ -8,7 +8,7 @@ public class StateSlide<T> : StateBase<T> where T : Enum
     private Vector3 _colCenterOrigin;
     private float _colHeightOrigin;
     private float _colShrinkRate = 0.25f;
-    public StateSlide(StateMachineBase<T> stateMachine, T machineState, T canExecuteConditionMask, T nextTarget) 
+    public StateSlide(StateMachineBase<T> stateMachine, T machineState, T canExecuteConditionMask, T nextTarget)
         : base(stateMachine, machineState, canExecuteConditionMask, nextTarget)
     {
         _col = stateMachine.owner.gameObject.FindChildByName("Collision").GetComponent<CapsuleCollider>();
@@ -48,7 +48,7 @@ public class StateSlide<T> : StateBase<T> where T : Enum
                     {
                         animationManager.SetBool("DoSlide", false);
                         MoveNext();
-                    }
+                    }   
                 }
                 break;
             case IState<T>.Commands.Action:
@@ -58,8 +58,6 @@ public class StateSlide<T> : StateBase<T> where T : Enum
                 break;
             case IState<T>.Commands.WaitForActionFinished:
                 {
-
-
                     if (animationManager.GetNormalizedTime() >= 0.9f)
                         MoveNext();
                 }

@@ -13,6 +13,7 @@ public class StateWallRun<T> : StateBase<T> where T : Enum
         _rb = stateMachine.owner.GetComponent<Rigidbody>();
         _wallDetector_L = stateMachine.owner.gameObject.FindChildByName("WallDetector_L").GetComponent<WallDetector>();
         _wallDetector_R = stateMachine.owner.gameObject.FindChildByName("WallDetector_R").GetComponent<WallDetector>();
+       
     }
 
     public override void Execute()
@@ -37,6 +38,7 @@ public class StateWallRun<T> : StateBase<T> where T : Enum
                         animationManager.SetBool("DoWallRunRight", true);
                     else
                         throw new Exception("[StateWallRun<>] : Wall run detector has problem");
+
                     MoveNext();
                 }
                 break;

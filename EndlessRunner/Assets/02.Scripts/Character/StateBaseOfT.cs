@@ -1,7 +1,7 @@
 ﻿using System;
 public abstract class StateBase<T> : IState<T> where T : Enum
 {
-    protected AnimationManager animationManager;
+    protected AnimationManager animationManager;  
     protected StateMachineBase<T> stateMachine;
     protected T canExecuteConditionMask;
     protected T nextTarget;
@@ -11,10 +11,10 @@ public abstract class StateBase<T> : IState<T> where T : Enum
     public virtual bool canExecute => canExecuteConditionMask.HasFlag(stateMachine.currentType) &&
                                       animationManager.isPreviousStateHasFinished;
 
-    public T machineState { get; private set; }
+    public T machineState { get; protected set; }
 
-    public StateBase(StateMachineBase<T> stateMachine,
-                     T machineState,
+    public StateBase(StateMachineBase<T> stateMachine, 
+                     T machineState, 
                      T canExecuteConditionMask,
                      T nextTarget)
     {
@@ -36,7 +36,7 @@ public abstract class StateBase<T> : IState<T> where T : Enum
 
         switch (current)
         {
-            case IState<T>.Commands.Idle:
+            case IState<T>.Commands.Idle:                
                 break;
             case IState<T>.Commands.Prepare:
                 MoveNext();
