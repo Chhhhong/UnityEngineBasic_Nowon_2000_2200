@@ -2,11 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
-namespace BehaviorTree
+namespace BT
 {
+    public abstract class BehaviorTree
+    {
+        public abstract RootNode Root { get; set; }
+        public abstract void Init();
+        public abstract ReturnTypes Tick();
+    }
+
     public enum ReturnTypes
     {
         Success,
@@ -19,7 +27,7 @@ namespace BehaviorTree
         public abstract ReturnTypes Invoke();
     }
 
-    public class Root : Node
+    public class RootNode : Node
     {
         public Node Child;
 
@@ -33,7 +41,6 @@ namespace BehaviorTree
             Child = child;
         }
     }
-
 
     public class Execution : Node
     {
@@ -66,7 +73,6 @@ namespace BehaviorTree
         public Node Child;
         public event Func<bool> Condition;
 
-
         public ConditionNode(Func<bool> condition)
         {
             Condition = condition;
@@ -76,6 +82,7 @@ namespace BehaviorTree
         {
             Child = child;
         }
+
         public override ReturnTypes Invoke()
         {
             if (Condition.Invoke())
@@ -111,6 +118,7 @@ namespace BehaviorTree
             {
                 return ReturnTypes.OnRunning;
             }
+
             return childReturn;
         }
     }
@@ -136,7 +144,6 @@ namespace BehaviorTree
     public class Selector : CompositeNode
     {
         private ReturnTypes _tmpResult;
-
         public override ReturnTypes Invoke()
         {
             foreach (var child in GetChildren())
@@ -191,35 +198,6 @@ namespace BehaviorTree
         }
     }
 
-    public abstract class BehaviorTree : MonoBehaviour
-    {
-        public Root Root { get; set; }
-        public abstract void Init();
-        public abstract void Tick();
-    }
-
-    public class BehaviorTreeForEnemy : BehaviorTree
-    {
-        public override Root Root { get; set; }
-
-        public override void Init()
-        {
-            Root = new Root();
-
-            Selector selector1 = new Selector();
-            Root.SetChild(selector1);
-            ConditionNode ifPlayerHit = new ConditionNode(() => true);
-            ifPlayerHit.SetChild(new Execution(() => ReturnTypes.Success));
-            selector1.AddChild(ifPlayerHit);
-
-        }
-
-        public override ReturnTypes Tick()
-        {
-            return Root.Invoke();
-        }
-
-    }
 }
 
 

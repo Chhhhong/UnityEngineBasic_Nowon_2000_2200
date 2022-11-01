@@ -20,6 +20,7 @@ public class CharacterPlayer : CharacterBase
     [SerializeField] StateTypes _currenType => _machine.currentType;
     [SerializeField] IState<StateTypes>.Commands _currentCommand => _machine.current.current;
 
+
     [Header("Detectors")]
     [SerializeField] private GroundDetector _groundDetector;
     [SerializeField] private WallDetector _wallDetector_L;
