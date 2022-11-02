@@ -12,6 +12,7 @@ public interface IState<T> where T : Enum
         Finish,
         WaitForFinished,
     }
+    public bool IsBusy { get; }
     public Commands current { get; }
     public bool canExecute { get; }
     

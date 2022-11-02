@@ -6,6 +6,8 @@ public abstract class StateBase<T> : IState<T> where T : Enum
     protected T canExecuteConditionMask;
     protected T nextTarget;
 
+    public bool IsBusy => current > IState<T>.Commands.Idle && current < IState<T>.Commands.Finish;
+
     public IState<T>.Commands current { get; protected set; }
 
     public virtual bool canExecute => canExecuteConditionMask.HasFlag(stateMachine.currentType) &&
